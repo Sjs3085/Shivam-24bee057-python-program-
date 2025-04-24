@@ -1,0 +1,890 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Assignment 1 - Python Programs
+a=5
+b=3
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+print("Add:",a+b,"Sub:",a-b,"Mul:",a*b,"Div:",a/b)
+hours=2
+print(hours*60)
+minutes=120
+print(minutes/60)
+dollar=10
+print(dollar*48)
+rs=480
+print(rs/48)
+dollar=10
+rs=dollar*48
+print(rs/70)
+grams=1000
+print(grams/1000)
+kgs=1
+print(kgs*1000)
+bytes=1048576
+print(bytes/1024,bytes/1024**2,bytes/1024**3)
+c=100
+print((9/5*c)+32)
+f=212
+print(5/9*(f-32))
+p=1000
+r=5
+n=2
+print(p*r*n/100)
+l=4
+print(l*l,4*l)
+l=4
+b=5
+print(l*b,2*(l+b))
+r=7
+print(22/7*r*r)
+h=10
+l=5
+print(h*l/2)
+gs=10000
+allowance=gs*0.1
+deduction=gs*0.03
+print(gs+allowance-deduction)
+gs=10000
+print(gs - gs*0.1)
+a=50
+b=60
+c=70
+print(a+b+c,(a+b+c)/3)
+
+import math
+
+def find_largest_smallest_two(num1, num2):
+    """Prints the largest and smallest values out of two numbers."""
+    if num1 > num2:
+        largest = num1
+        smallest = num2
+    else:
+        largest = num2
+        smallest = num1
+    print(f"Largest: {largest}, Smallest: {smallest}")
+
+def find_largest_smallest_three(num1, num2, num3):
+    """Prints the largest and smallest values out of three numbers."""
+    largest = num1
+    smallest = num1
+    if num2 > largest:
+        largest = num2
+    if num3 > largest:
+        largest = num3
+    if num2 < smallest:
+        smallest = num2
+    if num3 < smallest:
+        smallest = num3
+    print(f"Largest: {largest}, Smallest: {smallest}")
+
+def check_odd_even(num):
+    """Checks whether a given number is odd or even."""
+    if num % 2 == 0:
+        print(f"{num} is even.")
+    else:
+        print(f"{num} is odd.")
+
+def check_divisible_by_ten(num):
+    """Checks whether a given number is divisible by 10 or not."""
+    if num % 10 == 0:
+        print(f"{num} is divisible by 10.")
+    else:
+        print(f"{num} is not divisible by 10.")
+
+def check_minor_major(age):
+    """Accepts age and prints whether the person is a minor or major."""
+    if age < 18:
+        print("Minor")
+    else:
+        print("Major")
+
+def count_digits(num):
+    """Accepts a number and prints the number of digits in it."""
+    count = 0
+    if num == 0:
+        count = 1
+    else:
+        num = abs(num)  # Handle negative numbers
+        while num > 0:
+            num //= 10
+            count += 1
+    print(f"Number of digits: {count}")
+
+def check_leap_year(year):
+    """Accepts a year and checks whether it is a leap year or not."""
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        print(f"{year} is a leap year.")
+    else:
+        print(f"{year} is not a leap year.")
+
+def check_triangle_valid(angle1, angle2, angle3):
+    """Checks whether a triangle is valid based on the sum of its angles."""
+    if angle1 + angle2 + angle3 == 180:
+        print("Triangle is valid.")
+    else:
+        print("Triangle is not valid.")
+
+def print_absolute_value(num):
+    """Prints the absolute value of a given number."""
+    if num >= 0:
+        print(f"Absolute value: {num}")
+    else:
+        print(f"Absolute value: {-num}")
+
+def compare_area_perimeter(length, breadth):
+    """Checks if the area of a rectangle is greater than its perimeter."""
+    area = length * breadth
+    perimeter = 2 * (length + breadth)
+    if area > perimeter:
+        print("Area is greater than perimeter.")
+    else:
+        print("Area is not greater than perimeter.")
+
+def check_collinear_points(x1, y1, x2, y2, x3, y3):
+    """Checks if three points fall on one straight line."""
+    # Slope of line formed by (x1, y1) and (x2, y2)
+    if (x2 - x1) == 0:
+        slope1 = float('inf')
+    else:
+        slope1 = (y2 - y1) / (x2 - x1)
+
+    # Slope of line formed by (x2, y2) and (x3, y3)
+    if (x3 - x2) == 0:
+        slope2 = float('inf')
+    else:
+        slope2 = (y3 - y2) / (x3 - x2)
+
+    if slope1 == slope2:
+        print("The three points fall on one straight line.")
+    else:
+        print("The three points do not fall on one straight line.")
+
+def check_point_in_circle(center_x, center_y, radius, point_x, point_y):
+    """Determines whether a point lies inside, on, or outside a circle."""
+    distance_squared = (point_x - center_x)**2 + (point_y - center_y)**2
+    radius_squared = radius**2
+
+    if distance_squared < radius_squared:
+        print("The point lies inside the circle.")
+    elif distance_squared == radius_squared:
+        print("The point lies on the circle.")
+    else:
+        print("The point lies outside the circle.")
+
+def convert_to_words(num):
+    """Converts a number from 0 to 19 to its equivalent word."""
+    words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+             "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen",
+             "eighteen", "nineteen"]
+    if 0 <= num <= 19:
+        print(f"{num} -> {words[num]}")
+    else:
+        print("Number out of range (0-19).")
+
+def calculate_grade(marks):
+    """Assigns a grade based on the given marks."""
+    if marks is None:
+        return "NA"
+    elif 0 <= marks <= 39:
+        return "F"
+    elif 40 <= marks <= 44:
+        return "P"
+    elif 45 <= marks <= 49:
+        return "C"
+    elif 50 <= marks <= 54:
+        return "B"
+    elif 55 <= marks <= 59:
+        return "B+"
+    elif 60 <= marks <= 69:
+        return "A"
+    elif 70 <= marks <= 79:
+        return "A+"
+    elif 80 <= marks <= 100:
+        return "O"
+    else:
+        return "Invalid Marks"
+
+def calculate_total_average_result(sub1_marks, sub2_marks, sub3_marks):
+    """Accepts marks of three subjects, prints total, average, and pass/fail status with grades."""
+    total = 0
+    if sub1_marks is not None:
+        total += sub1_marks
+    if sub2_marks is not None:
+        total += sub2_marks
+    if sub3_marks is not None:
+        total += sub3_marks
+
+    average = total / 3 if all(marks is not None for marks in [sub1_marks, sub2_marks, sub3_marks]) and 3 > 0 else "N/A"
+
+    result = "Pass"
+    if (sub1_marks is not None and sub1_marks <= 39) or \
+       (sub2_marks is not None and sub2_marks <= 39) or \
+       (sub3_marks is not None and sub3_marks <= 39):
+        result = "Fail"
+
+    grade1 = calculate_grade(sub1_marks)
+    grade2 = calculate_grade(sub2_marks)
+    grade3 = calculate_grade(sub3_marks)
+
+    print(f"Total Marks: {total}")
+    print(f"Average Marks: {average}")
+    print(f"Result: {result}")
+    print(f"Subject 1 Grade: {grade1}")
+    print(f"Subject 2 Grade: {grade2}")
+    print(f"Subject 3 Grade: {grade3}")
+
+# Example Usage:
+print("1) Largest and smallest of two:")
+find_largest_smallest_two(15, 7)
+
+print("\n2) Largest and smallest of three:")
+find_largest_smallest_three(20, 5, 30)
+
+print("\n3) Check odd or even:")
+check_odd_even(12)
+check_odd_even(9)
+
+print("\n4) Check divisible by 10:")
+check_divisible_by_ten(50)
+check_divisible_by_ten(23)
+
+print("\n5) Check minor or major:")
+check_minor_major(15)
+check_minor_major(25)
+
+print("\n6) Count digits:")
+count_digits(12345)
+count_digits(-987)
+count_digits(0)
+
+print("\n7) Check leap year:")
+check_leap_year(2024)
+check_leap_year(2023)
+check_leap_year(1900)
+check_leap_year(2000)
+
+print("\n8) Check valid triangle:")
+check_triangle_valid(60, 60, 60)
+check_triangle_valid(30, 90, 70)
+
+print("\n9) Print absolute value:")
+print_absolute_value(-10)
+print_absolute_value(5)
+
+print("\n10) Compare area and perimeter of rectangle:")
+compare_area_perimeter(5, 3)
+compare_area_perimeter(10, 2)
+
+print("\n11) Check collinear points:")
+check_collinear_points(1, 1, 2, 2, 3, 3)
+check_collinear_points(1, 2, 3, 4, 5, 7)
+
+print("\n12) Check point in circle:")
+check_point_in_circle(0, 0, 5, 3, 4)
+check_point_in_circle(0, 0, 5, 5, 0)
+check_point_in_circle(0, 0, 5, 6, 0)
+
+print("\n13) Convert number to words (0-19):")
+convert_to_words(7)
+convert_to_words(19)
+convert_to_words(25)
+
+print("\n14) Calculate total, average, result, and grades:")
+calculate_total_average_result(75, 80, 65)
+calculate_total_average_result(30, 50, 70)
+calculate_total_average_result(None, 60, 70)
+
+def count_vowels(s):
+ vowels = "aeiouAEIOU"
+ count = 0
+ for char in s:
+ if char in vowels:
+ count += 1
+ return count
+def to_lower(s):
+ result = ""
+ for char in s:
+ if 'A' <= char <= 'Z':
+ result += chr(ord(char) + 32)
+ else:
+ result += char
+ return result
+def to_upper(s):
+ result = ""
+ for char in s:
+ if 'a' <= char <= 'z':
+ result += chr(ord(char) - 32)
+ else:
+ result += char
+ return result
+def toggle_case(s):
+ result = ""
+ for char in s:
+ if 'a' <= char <= 'z':
+ result += chr(ord(char) - 32)
+ elif 'A' <= char <= 'Z':
+ result += chr(ord(char) + 32)
+ else:
+ result += char
+ return result
+def is_substring(s1, s2):
+ return s1 in s2 or s2 in s1
+def remove_substring(onestring, removestring):
+ result = ""
+ i = 0
+ while i < len(onestring):
+ if onestring[i:i+len(removestring)] == removestring:
+ i += len(removestring)
+ else:
+ result += onestring[i]
+ i += 1
+ return result
+string_input = input("Enter a string: ")
+print("Number of vowels:", count_vowels(string_input))
+print("Lower case:", to_lower(string_input))
+
+Exercise 1:
+for i in range(65, 91): print(chr(i), end=' ') 
+for i in range(97, 123): print(chr(i), end=' ')
+Exercise 2:
+n = int(input("Enter a number: ")) 
+for i in range(1, 11): print(n, 'x', i, '=', n*i)
+Exercise 3:
+s = input("Enter a string: ") 
+alpha = sum(c.isalpha() for c in s) 
+digits = sum(c.isdigit() for c in s) 
+print("Alphabets:", alpha) 
+print("Digits:", digits)
+Exercise 4:
+n = int(input("Enter a number: ")) 
+import math 
+def is_prime(x): 
+ if x < 2: return False 
+ for i in range(2, int(x**0.5)+1): 
+ if x % i == 0: return False 
+ return True 
+def is_perfect(x): 
+ return sum(i for i in range(1, x) if x % i == 0) == x 
+def is_armstrong(x): 
+ return x == sum(int(d)**len(str(x)) for d in str(x))
+
+Exercise 1:
+odd = random.sample(range(1, 100, 2), 5)
+even = random.sample(range(2, 100, 2), 4)
+print("Original odd list:", odd)
+print("Even list to insert:", even)
+odd[2] = even
+print("List after inserting even list into odd list:", odd)
+flat = []
+for item in odd:
+ if isinstance(item, list):
+ flat.extend(item)
+ else:
+ flat.append(item)
+flat.sort()
+print("Flattened and sorted list:", flat)
+Exercise 2:
+nums = [random.randint(1, 10) for _ in range(20)]
+print("Generated list:", nums)
+n = int(input("Enter a number to find: "))
+positions = [i for i, x in enumerate(nums) if x == n]
+print("Positions:", positions)
+Exercise 3:
+nums = [random.randint(1, 30) for _ in range(50)]
+print("Original list:", nums)
+unique = list(set(nums))
+
+Assignment 6
+
+# 1
+def count_boys_girls(names):
+    boys = 0
+    girls = 0
+    for name in names:
+        if isinstance(name, tuple):
+            boys += 1
+        else:
+            girls += 1
+    return boys, girls
+
+# 2
+def separate_student_data(students):
+    roll_nos = []
+    names = []
+    ages = []
+    for roll_no, name, age in students:
+        roll_nos.append(roll_no)
+        names.append(name)
+        ages.append(age)
+    return roll_nos, names, ages
+
+# 3
+from datetime import date
+
+def days_between_dates(date1_tuple, date2_tuple):
+    date1 = date(date1_tuple[2], date1_tuple[1], date1_tuple[0])
+    date2 = date(date2_tuple[2], date2_tuple[1], date2_tuple[0])
+    return abs((date2 - date1).days)
+
+# 4
+def sort_by_price_descending(items):
+    return sorted(items, key=lambda item: item[1], reverse=True)
+
+# 5
+def remove_empty_tuples(tuples_list):
+    return [t for t in tuples_list if t]
+
+# 6
+def modify_tuple_element(tup, index, new_value):
+    lst = list(tup)
+    lst[index] = new_value
+    return tuple(lst)
+
+# 7
+def delete_tuple_element(tup, index):
+    lst = list(tup)
+    del lst[index]
+    return tuple(lst)
+
+# Assignment 7
+
+# 1
+def concatenate_dictionaries(dict1, dict2, dict3):
+    dict4 = dict1.copy()
+    dict4.update(dict2)
+    dict4.update(dict3)
+    return dict4
+
+# 2
+def is_dictionary_empty(dictionary):
+    return not bool(dictionary)
+
+# 3
+def dept_salary_stats(employees):
+    dept_salaries = {}
+    for dept, emp_id, salary in employees.values():
+        if dept not in dept_salaries:
+            dept_salaries[dept] = []
+        dept_salaries[dept].append(salary)
+
+    min_max_salaries = {}
+    for dept, salaries in dept_salaries.items():
+        min_max_salaries[dept] = (min(salaries), max(salaries))
+    return min_max_salaries
+
+# 4
+def character_frequency(text):
+    frequency = {}
+    for char in text:
+        frequency[char] = frequency.get(char, 0) + 1
+    return frequency
+
+# 5
+def calculate_total_bill(prices, quantities):
+    total_bill = 0
+    for item, price in prices.items():
+        if item in quantities:
+            total_bill += price * quantities[item]
+    return total_bill
+
+# Assignment 8
+
+# 6
+def uppercase_words_to_set(words):
+    uppercase_set = set()
+    for word in words:
+        uppercase_set.add(word.upper())
+    return uppercase_set
+
+# 7
+import random
+
+def random_numbers_analysis():
+    random_set = set(random.randint(15, 45) for _ in range(10))
+    less_than_30 = sum(1 for num in random_set if num < 30)
+    greater_than_35 = {num for num in random_set if num > 35}
+    random_set -= greater_than_35
+    return random_set, less_than_30
+
+# 8
+def modify_set():
+    my_set = set()
+    my_set.add("Alice")
+    my_set.add("Bob")
+    my_set.add("Charlie")
+    my_set.add("David")
+    my_set.add("Eve")
+    my_set.remove("Bob")
+    my_set.add("Robert")
+    my_set.discard("Charlie")
+    my_set.discard("David")
+    return my_set
+
+# 9
+def separate_names_by_prefix(names_set):
+    starts_with_a = {name for name in names_set if name.startswith('A')}
+    starts_with_b = {name for name in names_set if name.startswith('B')}
+    return starts_with_a, starts_with_b
+
+# Assignment 9
+
+# 1
+def count_lower_upper(text):
+    uppercase_count = 0
+    lowercase_count = 0
+    for char in text:
+        if 'a' <= char <= 'z':
+            lowercase_count += 1
+        elif 'A' <= char <= 'Z':
+            uppercase_count += 1
+    return {"uppercase": uppercase_count, "lowercase": lowercase_count}
+
+# 2
+def compute(n):
+    return n + int(str(n) * 2) + int(str(n) * 3) + int(str(n) * 4)
+
+# 3
+def create_array(dim1, dim2, dim3, value):
+    array_3d = [[[value for _ in range(dim3)] for _ in range(dim2)] for _ in range(dim1)]
+    return array_3d
+
+# 4
+def sum_avg(marks):
+    total = sum(marks)
+    average = total / len(marks) if marks else 0
+    return total, average
+
+# 5
+import string
+
+def ispangram(text):
+    alphabet = set(string.ascii_lowercase)
+    return set(text.lower()) >= alphabet
+
+# 6
+def create_power_tuples(end_value):
+    return [(x, x**2, x**3) for x in range(1, end_value + 1)]
+
+# 7
+def ispalindrome(text):
+    text = ''.join(filter(str.isalnum, text)).lower()
+    return text == text[::-1]
+
+# 8
+def convert(text):
+    words = text.split()
+    unique_words = sorted(list(set(words)))
+    return " ".join(unique_words)
+
+# 9
+def count_alpha_digits(text):
+    alpha_count = 0
+    digit_count = 0
+    for char in text:
+        if char.isalpha():
+            alpha_count += 1
+        elif char.isdigit():
+            digit_count += 1
+    return {"alphabets": alpha_count, "digits": digit_count}
+
+# 10
+def frequency(text):
+    word_counts = {}
+    words = text.lower().split()
+    for word in words:
+        word_counts[word] = word_counts.get(word, 0) + 1
+    return word_counts
+
+# 11
+def create_list(list1, list2):
+    return [item for item in list1 if item in list2]
+
+# Assignment 10
+
+import csv
+import json
+import os
+
+# 1
+def create_excel_csv(data, filename="output.csv"):
+    with open(filename, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerows(data)
+
+# 2
+def read_excel_csv_to_dict(filename="data.csv"):
+    data_dict = {}
+    with open(filename, 'r') as csvfile:
+        reader = csv.reader(csvfile)
+        header = next(reader)
+        for row in reader:
+            key = row[0]
+            value = {header[i]: row[i] for i in range(1, len(header))}
+            data_dict[key] = value
+    return data_dict
+
+# 3
+def create_vcard(name, phone, email, filename="contact.vcf"):
+    vcard = f"""BEGIN:VCARD
+VERSION:3.0
+FN:{name}
+TEL;TYPE=CELL:{phone}
+EMAIL:{email}
+END:VCARD"""
+    with open(filename, 'w') as f:
+        f.write(vcard)
+
+# 4
+def copy_file_to_new_subdirectory(source_file, new_subdir="backup"):
+    os.makedirs(new_subdir, exist_ok=True)
+    destination_file = os.path.join(new_subdir, os.path.basename(source_file))
+    with open(source_file, 'rb') as src, open(destination_file, 'wb') as dest:
+        dest.write(src.read())
+
+# 5
+def copy_to_uppercase(source_file, destination_file="uppercase_file.txt"):
+    with open(source_file, 'r') as src, open(destination_file, 'w') as dest:
+        for line in src:
+            dest.write(line.upper())
+
+# 6
+def merge_files_alternatively(file1, file2, output_file="merged_file.txt"):
+    with open(file1, 'r') as f1, open(file2, 'r') as f2, open(output_file, 'w') as outfile:
+        while True:
+            line1 = f1.readline()
+            line2 = f2.readline()
+            if not line1 and not line2:
+                break
+            if line1:
+                outfile.write(line1)
+            if line2:
+                outfile.write(line2)
+
+# 7
+import pickle
+from datetime import date
+
+class Employee:
+    def __init__(self, empcode, empname, doj, salary):
+        self.empcode = empcode
+        self.empname = empname
+        self.doj = doj
+        self.salary = salary
+
+def serialize_employee(employee, filename="employee.pkl"):
+    with open(filename, 'wb') as f:
+        pickle.dump(employee, f)
+
+def deserialize_employee(filename="employee.pkl"):
+    with open(filename, 'rb') as f:
+        return pickle.load(f)
+
+# 8
+def remove_articles(source_file, output_file="no_articles.txt"):
+    articles = {'a', 'the', 'an'}
+    with open(source_file, 'r') as infile, open(output_file, 'w') as outfile:
+        for line in infile:
+            words = line.lower().split()
+            filtered_words = [word for word in words if word not in articles]
+            outfile.write(" ".join(filtered_words) + "\n")
+
+# Assignment 11
+
+# 1
+def get_integer_input():
+    while True:
+        try:
+            num = int(input("Enter an integer: "))
+            return num
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
+# Assignment 12
+
+# 1
+class Complex:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def __add__(self, other):
+        return Complex(self.real + other.real, self.imag + other.imag)
+
+    def __sub__(self, other):
+        return Complex(self.real - other.real, self.imag - other.imag)
+
+    def __mul__(self, other):
+        real_part = self.real * other.real - self.imag * other.imag
+        imag_part = self.real * other.imag + self.imag * other.real
+        return Complex(real_part, imag_part)
+
+    def __truediv__(self, other):
+        denominator = other.real**2 + other.imag**2
+        if denominator == 0:
+            raise ZeroDivisionError("Cannot divide by zero")
+        real_part = (self.real * other.real + self.imag * other.imag) / denominator
+        imag_part = (self.imag * other.real - self.real * other.imag) / denominator
+        return Complex(real_part, imag_part)
+
+    def __str__(self):
+        return f"{self.real} + {self.imag}j"
+
+# 2
+class Matrix:
+    def __init__(self, matrix):
+        if len(matrix) != 3 or any(len(row) != 3 for row in matrix):
+            raise ValueError("Matrix must be 3x3")
+        self.matrix = matrix
+
+    def __add__(self, other):
+        result = [[self.matrix[i][j] + other.matrix[i][j] for j in range(3)] for i in range(3)]
+        return Matrix(result)
+
+    def __mul__(self, other):
+        result = [[sum(self.matrix[i][k] * other.matrix[k][j] for k in range(3)) for j in range(3)] for i in range(3)]
+        return Matrix(result)
+
+    def transpose(self):
+        result = [[self.matrix[j][i] for j in range(3)] for i in range(3)]
+        return Matrix(result)
+
+    def __str__(self):
+        return "\n".join(" ".join(map(str, row)) for row in self.matrix)
+
+# 3
+class Solid:
+    def surface_area(self):
+        raise NotImplementedError
+
+    def volume(self):
+        raise NotImplementedError
+
+class Cube(Solid):
+    def __init__(self, side):
+        self.side = side
+
+    def surface_area(self):
+        return 6 * self.side**2
+
+    def volume(self):
+        return self.side**3
+
+class Sphere(Solid):
+    import math
+    def __init__(self, radius):
+        self.radius = radius
+
+    def surface_area(self):
+        return 4 * math.pi * self.radius**2
+
+    def volume(self):
+        return (4/3) * math.pi * self.radius**3
+
+# 4
+class Shape:
+    def perimeter(self):
+        raise NotImplementedError
+
+    def area(self):
+        raise NotImplementedError
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+    def area(self):
+        return self.length * self.width
+
+class Circle(Shape):
+    import math
+    def __init__(self, radius):
+        self.radius = radius
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+    def area(self):
+        return math.pi * self.radius**2
+
+# 5
+class Time:
+    def __init__(self, hours, minutes, seconds):
+        self.hours = hours
+        self.minutes = minutes
+        self.seconds = seconds
+
+    def __add__(self, other):
+        total_seconds = (self.hours * 3600 + self.minutes * 60 + self.seconds +
+                         other.hours * 3600 + other.minutes * 60 + other.seconds)
+        hours = (total_seconds // 3600) % 24
+        minutes = (total_seconds % 3600) // 60
+        seconds = total_seconds % 60
+        return Time(hours, minutes, seconds)
+
+    def __sub__(self, other):
+        total_seconds1 = self.hours * 3600 + self.minutes * 60 + self.seconds
+        total_seconds2 = other.hours * 3600 + other.minutes * 60 + other.seconds
+        diff_seconds = abs(total_seconds1 - total_seconds2)
+        hours = (diff_seconds // 3600) % 24
+        minutes = (diff_seconds % 3600) // 60
+        seconds = diff_seconds % 60
+        return Time(hours, minutes, seconds)
+
+    def __str__(self):
+        return f"{self.hours:02}:{self.minutes:02}:{self.seconds:02}"
+
+# 6
+class Date:
+    def __init__(self, day, month, year):
+        self.day = day
+        self.month = month
+        self.year = year
+
+    def __eq__(self, other):
+        if not isinstance(other, Date):
+            return NotImplemented
+        return self.day == other.day and self.month == other.month and self.year == other.year
+
+    def __str__(self):
+        return f"{self.day:02}-{self.month:02}-{self.year}"
+
+# 7
+class Weather:
+    def __init__(self, parameters):
+        self.parameters = parameters
+
+    def __contains__(self, item):
+        return item in self.parameters
+
+# 8
+class String:
+    def __init__(self, text):
+        self.text = text
+
+    def __iadd__(self, other):
+        self.text += other
+        return self
+
+    def toLower(self):
+        return self.text.lower()
